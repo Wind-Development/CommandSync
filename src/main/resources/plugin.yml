@@ -1,8 +1,8 @@
 name: CommandSyncClient
 description: This works with Command Sync Server to run commands on the Velocity instance from the backend server.
-author: windcolor-dev
+author: windcolor-dev, FedericoVisin
 main: ga.windpvp.commandsync.SyncPlugin
-version: 0.0.1
+version: 0.0.2
 
 permissions:
   commandsync.admin:

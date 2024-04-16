@@ -1,24 +1,26 @@
 package ga.windpvp.commandsync.commands;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import ga.windpvp.commandsync.SyncPlugin;
-import net.md_5.bungee.api.ChatColor;
+import org.jetbrains.annotations.NotNull;
 
 public class SyncCommand implements CommandExecutor {
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+	public boolean onCommand(CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
 
 		if (!sender.hasPermission("commandsync.admin")) {
-			sender.sendMessage(ChatColor.RED + "Insufficient permissions.");
+			sender.sendMessage(Component.text("Insufficient permissions.").color(TextColor.color(200,0,0)));
 			return true;
 		}
 		
 		if (args.length == 0) {
-			sender.sendMessage(ChatColor.RED + "Insufficient arguments! Use /sync <command>.");
+			sender.sendMessage(Component.text("Insufficient arguments! Use /sync <command>.").color(TextColor.color(200,0,0)));
 			return true;
 		}
 		
@@ -34,7 +36,7 @@ public class SyncCommand implements CommandExecutor {
 
 		SyncPlugin.getInstance().getConnectionManager().dispatchCommand(builder.toString());
 		
-		sender.sendMessage(ChatColor.GREEN + "Synced command /" + builder.toString() + " to the Velocity instance!");
+		sender.sendMessage(Component.text("Synced command /" + builder.toString() + " to the Velocity instance!").color(TextColor.color(0,200,0)));
 
 		return true;
 	}

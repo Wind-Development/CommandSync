@@ -3,4 +3,3 @@ name: "backend-server"
 # The password to access the proxy server
 password: "defaultPassword"
 # The port of the proxy server
-port: 1500
